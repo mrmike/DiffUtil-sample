@@ -30,6 +30,10 @@ DiffResult can be applied to adapter by calling **`diffResult.dispatchUpdatesTo(
     }
 ```
 
+## Resources
+* [DiffUtil @ developer.android.com](https://developer.android.com/reference/android/support/v7/util/DiffUtil.html)
+* ["DiffUtil is a must!" @ Medium](https://medium.com/@nullthemall/diffutil-is-a-must-797502bc1149#.sejum95wh)
+
 ## License
 
     Copyright 2016 Michał Moczulski
