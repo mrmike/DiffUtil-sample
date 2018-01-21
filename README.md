@@ -1,5 +1,6 @@
-# DiffUtil Android Sample
+# DiffUtil Android Sample - Kotlin
 Example of usage [DiffUtil](https://developer.android.com/reference/android/support/v7/util/DiffUtil.html) utility class added originally in Support Library 24.2.0.
+Sample converted to Kotlin (*21.01.2018*).
 
 ## Demo
 ![Demo](https://github.com/mrmike/DiffUtil-sample/blob/master/raw/diffutil-sample-320.gif?raw=true)
@@ -7,7 +8,7 @@ Example of usage [DiffUtil](https://developer.android.com/reference/android/supp
 ## Implementation
 [*calculateDiff*](https://developer.android.com/reference/android/support/v7/util/DiffUtil.html#calculateDiff(android.support.v7.util.DiffUtil.Callback)) method from DiffUtill class requires [DiffUtil.Callback](https://developer.android.com/reference/android/support/v7/util/DiffUtil.Callback.html) object as parameter.
 
-### DiffUtil callback - [ActorDiffCallback.java](https://github.com/mrmike/DiffUtil-sample/blob/master/app/src/main/java/com/moczul/diffutilsample/ActorDiffCallback.java)
+### DiffUtil callback - [ActorDiffCallback.kt](https://github.com/mrmike/DiffUtil-sample/blob/master/app/src/main/java/com/moczul/diffutilsample/ActorDiffCallback.kt)
 
 Implements 4 methods:
 * **getOldListSize** - returns size of the old list
@@ -15,18 +16,18 @@ Implements 4 methods:
 * **areItemsTheSame** - returns true if two items are the same, e.g. have the same ids 
 * **areContentsTheSame** - returns true if displayed content was not changed. In our case we only display actor's name so we're detecing name's change.
 
-### Applying diff result - [ActorAdapter.swapItems()](https://github.com/mrmike/DiffUtil-sample/blob/master/app/src/main/java/com/moczul/diffutilsample/ActorAdapter.java#L34)
+### Applying diff result - [ActorAdapter.swap()](https://github.com/mrmike/DiffUtil-sample/blob/master/app/src/main/java/com/moczul/diffutilsample/ActorAdapter.kt#L31)
 
 DiffResult can be applied to adapter by calling **`diffResult.dispatchUpdatesTo(adapter)`**.
 
 ```
-    public void swapItems(List<Actor> actors) {
-        final ActorDiffCallback diffCallback = new ActorDiffCallback(this.actors, actors);
-        final DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(diffCallback);
+    fun swap(actors: List<Actor>) {
+            val diffCallback = ActorDiffCallback(this.actors, actors)
+            val diffResult = DiffUtil.calculateDiff(diffCallback)
 
-        this.actors.clear();
-        this.actors.addAll(actors);
-        diffResult.dispatchUpdatesTo(this);
+            this.actors.clear()
+            this.actors.addAll(actors)
+            diffResult.dispatchUpdatesTo(this)
     }
 ```
 
