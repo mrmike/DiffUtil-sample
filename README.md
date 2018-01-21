@@ -1,6 +1,5 @@
 # DiffUtil Android Sample - Kotlin
 Example of usage [DiffUtil](https://developer.android.com/reference/android/support/v7/util/DiffUtil.html) utility class added originally in Support Library 24.2.0.
-Sample converted to Kotlin (*21.01.2018*).
 
 ## Demo
 ![Demo](https://github.com/mrmike/DiffUtil-sample/blob/master/raw/diffutil-sample-320.gif?raw=true)
